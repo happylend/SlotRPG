@@ -1,0 +1,4 @@
+repository "SlotRPG@happylend@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
