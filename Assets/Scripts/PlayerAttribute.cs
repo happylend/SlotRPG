@@ -43,7 +43,7 @@ public class PlayerAttribute : MonoBehaviour
         //¹¥»÷Á¦¼ÆËã
         foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.type == BoxType.Attack)
+            if (child.type == BoxType.¹¥»÷)
             {
                 atk_value += child.attackValue;
             }
@@ -55,7 +55,7 @@ public class PlayerAttribute : MonoBehaviour
         //·ÀÓùÁ¦¼ÆËã
         foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.type == BoxType.Defend)
+            if (child.type == BoxType.·ÀÓù)
             {
                 def_value += child.attackValue;
             }
@@ -67,7 +67,7 @@ public class PlayerAttribute : MonoBehaviour
         //ÉúÃü»Ö¸´¼ÆËã
         foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.type == BoxType.Restore)
+            if (child.type == BoxType.»Ö¸´)
             {
                 res_value += child.attackValue;
             }

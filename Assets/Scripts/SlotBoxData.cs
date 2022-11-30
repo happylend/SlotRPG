@@ -9,6 +9,9 @@ public class SlotBoxData : ScriptableObject
     [Header("====box类型====")]
     public BoxType type;//类型
 
+    [Header("====build分类====")]
+    public BuildType buildtype;
+
     [Header("====box名称====")]
     public string name;//名称
     [Header("====box图片====")]
@@ -37,21 +40,26 @@ public class SlotBoxData : ScriptableObject
 
     public enum BoxType
     {
-        Attack,     //攻击
-        Defend,     //防御
-        Restore,    //恢复
+        攻击,    
+        防御,     
+        恢复,
+        消耗,
     }
 
+    public enum BuildType
+    {
+        枪械流,
+    }
     public enum AttackType
     {
-        Normal,     //普通
-        Piercing,   //穿刺
+        普通,     //普通
+        穿刺,   //穿刺
     }
 
     public enum AttackAim
     {
-        Self,
-        Enemy
+        敌人,
+        自己,
     }
 
     public static explicit operator GameObject(SlotBoxData v)
