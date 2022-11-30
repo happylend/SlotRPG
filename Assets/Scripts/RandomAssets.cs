@@ -9,19 +9,21 @@ public class RandomAssets : MonoBehaviour
     private PlayerAttribute playerattributeScript;
 
     //临时背包
-    private List<GameObject> TemporaryBackpack = new List<GameObject>();
+    private List<SlotBoxData> TemporaryBackpack = new List<SlotBoxData>();
 
     //声明所有box位置
     private Transform[,] Chains = new Transform[4, 5];
 
     //桌面上的item列表
-    private List<GameObject> ChainsItem = new List<GameObject>();
+    private List<SlotBoxData> ChainsItem = new List<SlotBoxData>();
 
     //桌面box数量
     int limitNum;
 
     //重复位置检测列表
     List<int> SameArray = new List<int>();
+
+
 
     void Awake()
     {
@@ -77,7 +79,7 @@ public class RandomAssets : MonoBehaviour
         SameArray.Clear();
 
         //将背包内的道具放入临时背包中
-        foreach (GameObject child in backpackScript.BackpackItem)
+        foreach (SlotBoxData child in backpackScript.BackpackItem)
         {
             TemporaryBackpack.Add(child);
         }
@@ -89,12 +91,9 @@ public class RandomAssets : MonoBehaviour
         {
             for (int j = 0; j < Chains.GetLength(1); j++)
             {
-                foreach (Transform child in Chains[i, j].transform.GetChild(0))
+                foreach (Transform child in Chains[i, j])
                 {
-                    if (child != null)
-                    {
-                        Destroy(child.gameObject);
-                    }
+                    child.transform.GetComponent<SpriteRenderer>().sprite = null;
 
                 }
             }
@@ -114,17 +113,16 @@ public class RandomAssets : MonoBehaviour
                 int itemID = Random.Range(0, TemporaryBackpack.Count);
 
                 //创建物体
-                GameObject box = Instantiate(TemporaryBackpack[itemID],
-                                             new Vector2(Chains[i, j].transform.GetChild(0).position.x, Chains[i, j].transform.GetChild(0).position.y),
-                                             Chains[i, j].transform.GetChild(0).rotation,
-                                             Chains[i, j].transform.GetChild(0));
+                Chains[i, j].transform.GetChild(0).transform.GetComponent<SpriteRenderer>().sprite = TemporaryBackpack[itemID].image;
+
+
                 limit++;
 
                 //加入到当前桌面列表中
                 ChainsItem.Add(TemporaryBackpack[itemID]);
 
                 //加到玩家表中
-                playerattributeScript.Attribute_Turn.Add(TemporaryBackpack[itemID].transform);
+                playerattributeScript.Attribute_Turn.Add(TemporaryBackpack[itemID]);
 
                 //从临时背包暂时移除
                 TemporaryBackpack.Remove(TemporaryBackpack[itemID]);

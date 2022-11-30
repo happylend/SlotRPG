@@ -5,10 +5,12 @@ using UnityEngine;
 public class Backpack : MonoBehaviour
 {
     //战斗内道具
-    public List<GameObject> BackpackItem = new List<GameObject>();
+    public List<SlotBoxData> BackpackItem = new List<SlotBoxData>();
 
     //常驻5个道具
-    public List<GameObject> NormalBackpackItem = new List<GameObject>();
+    public List<SlotBoxData> NormalBackpackItem = new List<SlotBoxData>();
+
+    public SlotBoxData boxData;
 
     void Start()
     {

@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 老虎机方块类
-/// </summary>
-[Serializable]
-public struct cubeAttribute
+[CreateAssetMenu(fileName = "BoxData", menuName = "ScriptableObject/方块数据", order = 0)]
+public class SlotBoxData : ScriptableObject
 {
     [Header("====box类型====")]
     public BoxType type;//类型
@@ -38,38 +35,27 @@ public struct cubeAttribute
     [Header("====充能/销毁剩余次数====")]
     public int count;//使用次数
 
-
-}
-public enum BoxType
-{
-    Attack,     //攻击
-    Defend,     //防御
-    Restore,    //恢复
-}
-
-public enum AttackType
-{
-    Normal,     //普通
-    Piercing,   //穿刺
-}
-
-public enum AttackAim
-{
-    Self,
-    Enemy
-}
-
-public class CubeManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+    public enum BoxType
     {
-        
+        Attack,     //攻击
+        Defend,     //防御
+        Restore,    //恢复
     }
 
-    // Update is called once per frame
-    void Update()
+    public enum AttackType
     {
-        
+        Normal,     //普通
+        Piercing,   //穿刺
+    }
+
+    public enum AttackAim
+    {
+        Self,
+        Enemy
+    }
+
+    public static explicit operator GameObject(SlotBoxData v)
+    {
+        throw new NotImplementedException();
     }
 }

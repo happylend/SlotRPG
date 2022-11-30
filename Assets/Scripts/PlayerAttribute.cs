@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static SlotBoxData;
 
 public class PlayerAttribute : MonoBehaviour
 {
     private RandomAssets randomassetsScript;
 
     [HideInInspector]
-    public  List<Transform> Attribute_Turn = new List<Transform>();
+    public  List<SlotBoxData> Attribute_Turn = new List<SlotBoxData>();
 
     public GameObject ATK_Num;
     public GameObject DEF_Num;
@@ -40,11 +41,11 @@ public class PlayerAttribute : MonoBehaviour
         int res_value = 0;
 
         //π•ª˜¡¶º∆À„
-        foreach (Transform child in Attribute_Turn)
+        foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.GetComponent<CubeAttribute>().boxAttribute.type == BoxType.Attack)
+            if (child.type == BoxType.Attack)
             {
-                atk_value += child.GetComponent<CubeAttribute>().boxAttribute.attackValue;
+                atk_value += child.attackValue;
             }
         }
         Debug.Log("atk_value: " + atk_value);
@@ -52,11 +53,11 @@ public class PlayerAttribute : MonoBehaviour
         atk_value_str.text = atk_value.ToString();
 
         //∑¿”˘¡¶º∆À„
-        foreach (Transform child in Attribute_Turn)
+        foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.GetComponent<CubeAttribute>().boxAttribute.type == BoxType.Defend)
+            if (child.type == BoxType.Defend)
             {
-                def_value += child.GetComponent<CubeAttribute>().boxAttribute.attackValue;
+                def_value += child.attackValue;
             }
         }
         Debug.Log("atk_value: " + def_value);
@@ -64,11 +65,11 @@ public class PlayerAttribute : MonoBehaviour
         def_value_str.text = def_value.ToString();
 
         //…˙√¸ª÷∏¥º∆À„
-        foreach (Transform child in Attribute_Turn)
+        foreach (SlotBoxData child in Attribute_Turn)
         {
-            if (child.GetComponent<CubeAttribute>().boxAttribute.type == BoxType.Restore)
+            if (child.type == BoxType.Restore)
             {
-                res_value += child.GetComponent<CubeAttribute>().boxAttribute.attackValue;
+                res_value += child.attackValue;
             }
         }
         Debug.Log("atk_value: " + res_value);

@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     {
         //将默认box加入到战斗背包中
         backpackScript.BackpackItem.Clear();
-        foreach (GameObject child in backpackScript.NormalBackpackItem)
+        foreach (SlotBoxData child in backpackScript.NormalBackpackItem)
         {
             backpackScript.BackpackItem.Add(child);
         }

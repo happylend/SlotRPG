@@ -1923,11 +1923,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackpackItem: []
   NormalBackpackItem:
-  - {fileID: 9200059177467359285, guid: 527a1e69a6c8b1144b434421077db3f3, type: 3}
-  - {fileID: 9200059177467359285, guid: 527a1e69a6c8b1144b434421077db3f3, type: 3}
-  - {fileID: 4160405354644204577, guid: e4574074289d00c499af129a06e154cd, type: 3}
-  - {fileID: 4160405354644204577, guid: e4574074289d00c499af129a06e154cd, type: 3}
-  - {fileID: 6699243555254000194, guid: ea3ba5c2ac7ec8c47ab104008560ca5a, type: 3}
+  - {fileID: 11400000, guid: 8f02f415762057f4193abd080145de4c, type: 2}
+  - {fileID: 11400000, guid: 8f02f415762057f4193abd080145de4c, type: 2}
+  - {fileID: 11400000, guid: c1c8c018436a1a645b0479020fb1957b, type: 2}
+  - {fileID: 11400000, guid: c1c8c018436a1a645b0479020fb1957b, type: 2}
+  - {fileID: 11400000, guid: 8f02f415762057f4193abd080145de4c, type: 2}
+  boxData: {fileID: 0}
 --- !u!4 &879115453
 Transform:
   m_ObjectHideFlags: 0
