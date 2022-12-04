@@ -38,6 +38,18 @@ public class SlotBoxData : ScriptableObject
     [Header("====充能/销毁剩余次数====")]
     public int count;//使用次数
 
+
+
+    public List<SlotBoxData> gunMagazine = new List<SlotBoxData>();
+
+    public List<SlotBoxData> magicMagazine = new List<SlotBoxData>();
+
+
+
+
+
+
+
     public enum BoxType
     {
         攻击,    
@@ -48,7 +60,9 @@ public class SlotBoxData : ScriptableObject
 
     public enum BuildType
     {
+        默认,
         枪械流,
+        魔法流,
     }
     public enum AttackType
     {

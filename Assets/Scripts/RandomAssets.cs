@@ -14,6 +14,9 @@ public class RandomAssets : MonoBehaviour
     //声明所有box位置
     private Transform[,] Chains = new Transform[4, 5];
 
+    //储存box在场上的位置
+    public SlotBoxData[,] currentBox = new SlotBoxData[4, 5];
+
     //桌面上的item列表
     private List<SlotBoxData> ChainsItem = new List<SlotBoxData>();
 
@@ -84,8 +87,6 @@ public class RandomAssets : MonoBehaviour
             TemporaryBackpack.Add(child);
         }
 
-        Debug.Log("Do");
-
         //清空桌面
         for (int i = 0; i < Chains.GetLength(0); i++)
         {
@@ -121,6 +122,11 @@ public class RandomAssets : MonoBehaviour
                 //加入到当前桌面列表中
                 ChainsItem.Add(TemporaryBackpack[itemID]);
 
+                //加入到表中
+                currentBox[i, j] = TemporaryBackpack[itemID];
+
+                Debug.Log("i: " + i + ", j: " + j + ", box: " + currentBox[i, j].name);
+
                 //加到玩家表中
                 playerattributeScript.Attribute_Turn.Add(TemporaryBackpack[itemID]);
 
@@ -133,7 +139,6 @@ public class RandomAssets : MonoBehaviour
             {
                 break;
             }
-            Debug.Log("limit: " + limit);
 
         }
 
@@ -161,7 +166,6 @@ public class RandomAssets : MonoBehaviour
             }
             SameArray.Add(x * 10 + y);
         }
-        Debug.Log(x * 10 + y);
 
         return true;
     }
